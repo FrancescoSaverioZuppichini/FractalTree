@@ -14,4 +14,5 @@ class DrawView: NSView {
         
         tree.draw(path);
     }
+  
  }

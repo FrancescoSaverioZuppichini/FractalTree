@@ -13,19 +13,24 @@ class Branch{
     var start: NSPoint;
     var end: NSPoint;
     var tree: Tree;
+    var deep: Int;
     
-    init(_ start: NSPoint,_ end: NSPoint,_ tree: Tree){
+    init(_ start: NSPoint,_ end: NSPoint,_ tree: Tree,_ deep : Int){
         self.start = start;
         self.end = end;
         self.tree = tree;
+        self.deep = deep;
     }
      
     func draw(_ path: NSBezierPath){
-        
+        print(deep)
+        path.lineWidth = CGFloat(self.deep);
         path.move(to: self.start);
         path.line(to: self.end);
         
         path.stroke();
+        
+        path.close();
     }
     
 }
