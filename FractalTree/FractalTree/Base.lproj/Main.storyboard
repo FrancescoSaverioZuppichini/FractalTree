@@ -687,7 +687,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yyl-eW-oRe" customClass="DrawView" customModule="FractalTree" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="200" width="800" height="800"/>
+                                <rect key="frame" x="0.0" y="0.0" width="800" height="800"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </customView>
                         </subviews>
@@ -695,7 +695,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="56" y="800"/>
+            <point key="canvasLocation" x="-71" y="492"/>
         </scene>
     </scenes>
 </document>

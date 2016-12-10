@@ -36,14 +36,15 @@ class Tree{
     init(start: NSPoint){
         self.branches = [];
         self.growFactor = 0.8;
-        self.maxDepth = 2;
+        self.maxDepth = 8;
         self.angle = 45;
-        self.len = 200;
+        self.len = 220;
         self.start = start;
-        self.lineWidthBase = 1.0;
+        self.lineWidthBase = 0.5;
         self.noise = 0;
         
     }
+    
     func randomBetweenNumbers(firstNum: CGFloat, secondNum: CGFloat) -> CGFloat{
         return CGFloat(arc4random()) / CGFloat(UINT32_MAX) * abs(firstNum - secondNum) + min(firstNum, secondNum)
     }
@@ -56,10 +57,20 @@ class Tree{
         path.lineWidth = self.lineWidthBase;
         // call the inner function that will draw, create and store all the branches
         innerDraw(self.root!,self.maxDepth,path);
-
-        print("created: ", self.branches.count , " branches");
+        
+        print("created: ", self.branches.count , " branches.");
     }
     
+    // This function run a transformation on all the branches, can be used to translate the tree, scale it or rotate.
+    // Be sure to remove the prev draw.
+    func transformAllBranches(_ transformation: NSAffineTransform, _ path: NSBezierPath){
+        for branch in self.branches{
+            branch.end = transformation.transform(branch.end);
+            branch.start = transformation.transform(branch.start);
+            // draw again
+            branch.draw(path)
+        }
+    }
     
     func innerDraw(_ branch:Branch,_ deep:Int, _ path: NSBezierPath){
         
@@ -74,8 +85,6 @@ class Tree{
         if(deep <= 0){
             return;
         }
-        
-        
         
         
         let myTransformation = NSAffineTransform()
@@ -99,14 +108,11 @@ class Tree{
         
         let leftBranch = Branch(branch.end, branch.end + leftEnd, self, deep);
         
-        self.branches.append(branch);
-        
         let rightBranch = Branch(branch.end,branch.end + rightEnd,self, deep);
         
         let newDeep = deep - 1;
         
         //call recursion to create left and right branch
-        
         innerDraw(leftBranch, newDeep, path);
         innerDraw(rightBranch, newDeep, path);
         

@@ -21,16 +21,14 @@ class Branch{
         self.tree = tree;
         self.deep = deep;
     }
-     
+    
     func draw(_ path: NSBezierPath){
-        print(deep)
-        path.lineWidth = CGFloat(self.deep);
+        
+        //        path.lineWidth = CGFloat(self.deep);
         path.move(to: self.start);
         path.line(to: self.end);
         
         path.stroke();
-        
-        path.close();
     }
     
 }
