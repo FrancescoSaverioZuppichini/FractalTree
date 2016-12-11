@@ -1,7 +1,7 @@
-FractalTree/Assets.xcassets/*
-FractalTree/Base.lproj/*
+FractalTree/FractalTree/Assets.xcassets/*
+FractalTree/FractalTree/Base.lproj/*
 FractalTree/FractalTree.xcodeproj
-FractalTree/Info.plist
+FractalTree/FractalTree/Info.plist
 .DS_Store
 .DS_Store?
 ._*
